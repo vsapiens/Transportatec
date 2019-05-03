@@ -1,4 +1,4 @@
-class Chofer {
+class Chofer extends Persona {
 
     constructor(name, id, num_licencia) {
         this.name = name;
