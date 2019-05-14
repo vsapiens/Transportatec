@@ -1,21 +1,7 @@
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        window.location.pathname = '/chofer.html'
-    }
-});
-
-function login() {
-    
-    var userEmail = document.getElementById("email_field").value;
-    var userPassword = document.getElementById("password_field").value;
-
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        window.alert("Error: " + errorMessage);
-        // ...
+function logout() {
+    firebase.auth().signOut().then(function () {
+        window.location.pathname = '/login.html'
+    }).catch(function (error) {
+        window.alert("Error: " + error);
     });
 }
-
