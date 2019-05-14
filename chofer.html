@@ -365,7 +365,7 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a onclick="logout()" class="dropdown-item" href="#" data-toggle="modal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -550,7 +550,29 @@
 
 
   </script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD37p-uf3-j4bjZ7cBpaQz1qeZo_5VJnJQ",
+      authDomain: "transportatec-54f87.firebaseapp.com",
+      databaseURL: "https://transportatec-54f87.firebaseio.com",
+      projectId: "transportatec-54f87",
+      storageBucket: "transportatec-54f87.appspot.com",
+      messagingSenderId: "671912506110",
+      appId: "1:671912506110:web:2b74ec62eb75b712"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
+  <script src="js/chofer.js"></script>
 </body>
 
 </html>

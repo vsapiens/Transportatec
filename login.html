@@ -38,7 +38,7 @@
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
               <div class="col-lg-6">
-                <div class="p-5">
+                <div id="login_div" class="p-5">
                   <div class="logo-tec text-center">
                     <img src="img/LogoTec.PNG">
                   </div>
@@ -48,11 +48,11 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                      <input type="email" class="form-control form-control-user" id="email_field"
                         aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                      <input type="password" class="form-control form-control-user" id="password_field"
                         placeholder="Password">
                     </div>
                     <div class="form-group">
@@ -61,11 +61,14 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <a onclick="login()" class="btn btn-primary btn-user btn-block">
                       Login
                     </a>
                   </form>
                   <hr>
+                  <div class="text-center">
+                    <a class="small" href="register.html">Create an Account!</a>
+                  </div>
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
@@ -90,6 +93,37 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#config-web-app -->
+  
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD37p-uf3-j4bjZ7cBpaQz1qeZo_5VJnJQ",
+      authDomain: "transportatec-54f87.firebaseapp.com",
+      databaseURL: "https://transportatec-54f87.firebaseio.com",
+      projectId: "transportatec-54f87",
+      storageBucket: "transportatec-54f87.appspot.com",
+      messagingSenderId: "671912506110",
+      appId: "1:671912506110:web:2b74ec62eb75b712"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Main script-->
+  <script src="js/index.js"></script>
 
 </body>
 

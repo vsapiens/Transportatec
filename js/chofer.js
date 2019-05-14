@@ -1,3 +1,11 @@
+function logout() {
+    firebase.auth().signOut().then(function () {
+        window.location.pathname = '/login.html'
+    }).catch(function (error) {
+        window.alert("Error: " + error);
+    });
+}
+
 class Chofer extends Persona {
 
     constructor(name, id, num_licencia) {
