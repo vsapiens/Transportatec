@@ -1,6 +1,12 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        window.location.pathname = '/chofer.html'
+        var emailChar = user.email[0];
+        if (emailChar == "a" || emailChar == "l") {
+            window.location.pathname = '/index.html'
+        } else if (emailChar == "c") {
+            window.location.pathname = '/chofer.html'
+        }
+        /* window.location.pathname = '/chofer.html' */
     }
 });
 

@@ -1,6 +1,12 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        window.location.pathname = '/chofer.html'
+        var emailChar = user.email[0];
+        if(emailChar == "a" || emailChar == "l"){
+            window.location.pathname = '/index.html'
+        }else if(emailChar == "c"){
+            window.location.pathname = '/chofer.html'
+        }
+        /* window.location.pathname = '/chofer.html' */
     }
 });
 
@@ -13,16 +19,12 @@ function register() {
     
     if(password === rePassword){
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            if(error){
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
 
-                window.alert("Error: " + errorMessage);
-                // ...
-            }else{
-                window.location.pathname = '/login.html'
-            }
+            window.alert("Error: " + errorMessage);
+            // ...
         });
     }else{
         window.alert("Bad password");
