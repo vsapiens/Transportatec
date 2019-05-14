@@ -1,4 +1,4 @@
-var email;
+var email, route, schedule;
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -15,8 +15,8 @@ function modalAction() {
     var scheduleIndex = document.getElementById("schedule").value;
     var routeIndex = document.getElementById("route").value;
     
-    var route = routes[routeIndex];
-    var schedule = schedules[scheduleIndex];
+    route = routes[routeIndex];
+    schedule = schedules[scheduleIndex];
 
     document.getElementById("route-modal").innerHTML = route; 
     document.getElementById("schedule-modal").innerHTML = schedule;
@@ -28,7 +28,12 @@ function modalAction() {
 }
 
 function doneModalAction() {
-    window.alert(email);
+    window.open('mailto:' + email + '?subject=Reservation&body='
+    +"Your reservation it's set!"
+    +'\nRoute:'+route
+    +'\nSchedule: '+schedule
+    +'\nPlease check that everything is correct.'
+    );
 }
 
 function logout() {
