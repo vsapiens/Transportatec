@@ -1,12 +1,12 @@
-import { isNull } from "util";
+var email;
 
-function logout() {
-    firebase.auth().signOut().then(function () {
-        window.location.pathname = '/login.html'
-    }).catch(function (error) {
-        window.alert("Error: " + error);
-    });
-}
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        email = user.email;
+    } else {
+        // No user is signed in.
+    }
+});
 
 function modalAction() {
     var routes = ["Valle 1","Valle 2","San Nicolas","Puerta de Hierro","Cumbres","San Jeronimo","Lincoln","Contry Linda Vista"];
@@ -14,10 +14,27 @@ function modalAction() {
 
     var scheduleIndex = document.getElementById("schedule").value;
     var routeIndex = document.getElementById("route").value;
+    
+    var route = routes[routeIndex];
+    var schedule = schedules[scheduleIndex];
 
-    window.alert("scheduleIndex");
-
-    /* if (isNaN(routeIndex) || isNull(scheduleIndex)){
+    document.getElementById("route-modal").innerHTML = route; 
+    document.getElementById("schedule-modal").innerHTML = schedule;
+    /* Data validation */
+    /* if (scheduleIndex == -1 || routeIndex == -1){
         window.alert("Please select a valid route and schedule.");
-    } */
+    }  */
+
+}
+
+function doneModalAction() {
+    window.alert(email);
+}
+
+function logout() {
+    firebase.auth().signOut().then(function () {
+        window.location.pathname = '/login.html'
+    }).catch(function (error) {
+        window.alert("Error: " + error);
+    });
 }
