@@ -6,7 +6,7 @@ function logout() {
     });
 }
 
-class Chofer extends Persona {
+class Chofer {
 
     constructor(name, id, num_licencia) {
         this.name = name;

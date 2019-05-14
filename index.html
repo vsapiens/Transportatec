@@ -23,7 +23,6 @@
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -65,10 +64,10 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Customization</h6>
-            <a class="collapse-item" >Your Profile</a>
-            <a class="collapse-item" >Your Routes</a>
-            <a class="collapse-item" >Your History</a>
-            <a class="collapse-item" >Your Tickets</a>
+            <a class="collapse-item">Your Profile</a>
+            <a class="collapse-item">Your Routes</a>
+            <a class="collapse-item">Your History</a>
+            <a class="collapse-item">Your Tickets</a>
           </div>
         </div>
       </li>
@@ -83,10 +82,10 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" >Colors</a>
-            <a class="collapse-item" >Borders</a>
-            <a class="collapse-item" >Animations</a>
-            <a class="collapse-item" >Other</a>
+            <a class="collapse-item">Colors</a>
+            <a class="collapse-item">Borders</a>
+            <a class="collapse-item">Animations</a>
+            <a class="collapse-item">Other</a>
           </div>
         </div>
       </li>
@@ -147,8 +146,7 @@
           <!-- Topbar Search - Rout -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <select class="form-control bg-light border-0 small" id="route"
-                placeholder="Recipient's username">
+              <select class="form-control bg-light border-0 small" id="route" placeholder="Recipient's username">
                 <option value="-1" selected>Search for routes...</option>
                 <option value="0">Valle 1</option>
                 <option value="1">Valle 2</option>
@@ -165,9 +163,8 @@
           <!-- Topbar Search - Schedule -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <select class="form-control bg-light border-0 small" id="schedule"
-                placeholder="Recipient's username">
-                <option value = -1 selected>Search for schedules...</option>
+              <select class="form-control bg-light border-0 small" id="schedule" placeholder="Recipient's username">
+                <option value=-1 selected>Search for schedules...</option>
                 <option value="0">8:00</option>
                 <option value="1">13:00</option>
                 <option value="2">21:00</option>
@@ -175,11 +172,13 @@
             </div>
           </form>
 
+
           <!-- Button trigger modal -->
-          <button onclick="modalAction()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button onclick="modalAction()" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModal">
             Reserve
           </button>
-          
+
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -394,6 +393,7 @@
         </nav>
         <!-- End of Topbar -->
 
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -475,7 +475,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Reservations</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+                      <div id="reservationNum" class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -567,93 +567,119 @@
               </div>
             </div>
           </div>
-        <!-- /.container-fluid -->
+          <!-- Basic Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Reservations</h6>
+            </div>
+            <div class="card-body" id="reservations">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Route</th>
+                    <th scope="col">Schedule</th>
+                    <th scope="col">Extra Person</th>
+                    <th scope="col">Bicycle</th>
+                  </tr>
+                </thead>
+                <tbody id="table">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Content Wrapper -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a onclick="logout()" class="btn btn-primary">Logout</a>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a onclick="logout()" class="btn btn-primary">Logout</a>
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-  
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
-  
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyD37p-uf3-j4bjZ7cBpaQz1qeZo_5VJnJQ",
-      authDomain: "transportatec-54f87.firebaseapp.com",
-      databaseURL: "https://transportatec-54f87.firebaseio.com",
-      projectId: "transportatec-54f87",
-      storageBucket: "transportatec-54f87.appspot.com",
-      messagingSenderId: "671912506110",
-      appId: "1:671912506110:web:2b74ec62eb75b712"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
-  
-  <!-- Main script-->
-  <script src="js/index.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD37p-uf3-j4bjZ7cBpaQz1qeZo_5VJnJQ",
+        authDomain: "transportatec-54f87.firebaseapp.com",
+        databaseURL: "https://transportatec-54f87.firebaseio.com",
+        projectId: "transportatec-54f87",
+        storageBucket: "transportatec-54f87.appspot.com",
+        messagingSenderId: "671912506110",
+        appId: "1:671912506110:web:2b74ec62eb75b712"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Main script-->
+    <script src="js/index.js"></script>
 
 </body>
 
