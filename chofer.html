@@ -43,7 +43,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="chofer.html">
           <i class="far fa-user"></i>
           <span>Home</span></a>
       </li>
@@ -66,10 +66,10 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Customization</h6>
-            <a class="collapse-item" href="buttons.html">Your Profile</a>
-            <a class="collapse-item" href="cards.html">Your Routes</a>
-            <a class="collapse-item" href="cards.html">Your History</a>
-            <a class="collapse-item" href="cards.html">Your Tickets</a>
+            <a class="collapse-item" >Your Profile</a>
+            <a class="collapse-item" >Your Routes</a>
+            <a class="collapse-item" >Your History</a>
+            <a class="collapse-item" >Your Tickets</a>
           </div>
         </div>
       </li>
@@ -84,24 +84,16 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <a class="collapse-item" >Colors</a>
+            <a class="collapse-item" >Borders</a>
+            <a class="collapse-item" >Animations</a>
+            <a class="collapse-item" >Other</a>
           </div>
         </div>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
           aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
@@ -119,21 +111,7 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -365,7 +343,7 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a onclick="logout()" class="dropdown-item" href="#" data-toggle="modal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -407,27 +385,6 @@
           
            <!-- Content Row -->
           <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-2">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Routes</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                      src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
-                      href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that
-                    you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
-            </div>
               <div class="col-lg-6 mb-2">
               <!-- Approach -->
               <div class="card shadow mb-4">
@@ -442,12 +399,54 @@
                     </ul>
                 </div>
               </div>
-
+            </div>
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Routes Driven</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">
+                        <i class="fa fa-download"></i>
+                        Export as CSV
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="fa fa-share-square"></i>
+                        Share
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Valle 1
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> San Nicolas
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> San Jeronimo
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
+        
 
       </div>
       <!-- End of Main Content -->
@@ -550,7 +549,29 @@
 
 
   </script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD37p-uf3-j4bjZ7cBpaQz1qeZo_5VJnJQ",
+      authDomain: "transportatec-54f87.firebaseapp.com",
+      databaseURL: "https://transportatec-54f87.firebaseio.com",
+      projectId: "transportatec-54f87",
+      storageBucket: "transportatec-54f87.appspot.com",
+      messagingSenderId: "671912506110",
+      appId: "1:671912506110:web:2b74ec62eb75b712"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
+  <script src="js/chofer.js"></script>
 </body>
 
 </html>
