@@ -9,16 +9,16 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 function modalAction() {
-    var routes = ["Valle 1","Valle 2","San Nicolas","Puerta de Hierro","Cumbres","San Jeronimo","Lincoln","Contry Linda Vista"];
-    var schedules = ["8:00","13:00","21:00"];
+    var routes = ["Valle 1", "Valle 2", "San Nicolas", "Puerta de Hierro", "Cumbres", "San Jeronimo", "Lincoln", "Contry Linda Vista"];
+    var schedules = ["8:00", "13:00", "21:00"];
 
     var scheduleIndex = document.getElementById("schedule").value;
     var routeIndex = document.getElementById("route").value;
-    
+
     route = routes[routeIndex];
     schedule = schedules[scheduleIndex];
 
-    document.getElementById("route-modal").innerHTML = route; 
+    document.getElementById("route-modal").innerHTML = route;
     document.getElementById("schedule-modal").innerHTML = schedule;
     /* Data validation */
     /* if (scheduleIndex == -1 || routeIndex == -1){
@@ -28,12 +28,22 @@ function modalAction() {
 }
 
 function doneModalAction() {
-    window.open('mailto:' + email + '?subject=Reservation&body='
-    +"Your reservation it's set!"
-    +'\nRoute:'+route
-    +'\nSchedule: '+schedule
-    +'\nPlease check that everything is correct.'
-    );
+    db.collection("reservacion").add({
+            route = this.route,
+            schedule = this.schedule
+        })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+    // window.open('mailto:' + email + '?subject=Reservation&body='
+    // +"Your reservation it's set!"
+    // +'\nRoute:'+route
+    // +'\nSchedule: '+schedule
+    // +'\nPlease check that everything is correct.'
+    // );
 }
 
 function logout() {
