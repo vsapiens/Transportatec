@@ -30,6 +30,6 @@ QUnit.test( "Login_Suitcase" , function( assert ) {
     assert.notOk(4565456 != pass1, pass1 + " is not the correct password");
     assert.notOk(1234 != pass1, pass1 + " is not the correct password");
     assert.notOk(4565456 != pass1, pass1 + " is not the correct password");
- 
+
  });
  
