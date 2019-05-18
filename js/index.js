@@ -24,9 +24,14 @@ function modalAction() {
     document.getElementById("route-modal").innerHTML = route;
     document.getElementById("schedule-modal").innerHTML = schedule;
     /* Data validation */
-    /* if (scheduleIndex == -1 || routeIndex == -1){
+    /* 
+    
+    if (scheduleIndex == -1 || routeIndex == -1){
         window.alert("Please select a valid route and schedule.");
-    }  */
+    }  
+    
+    
+    */
 }
 
 function reservations() {
